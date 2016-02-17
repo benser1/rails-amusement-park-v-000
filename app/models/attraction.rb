@@ -1,3 +1,9 @@
 class Attraction < ActiveRecord::Base
-  # write associations here
-end
+  
+  has_many :rides
+  has_many :users, through: :rides
+
+
+
+
+end ## class end
