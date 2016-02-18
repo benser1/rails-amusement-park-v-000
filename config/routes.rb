@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :attractions
+  resources :sessions
 
   get '/signin' => 'sessions#new'
   post '/signin' => 'sessions#create'

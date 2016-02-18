@@ -33,7 +33,9 @@ class UsersController < ApplicationController
 
   def ride
     @ride = Ride.new(user_id: current_user.id, attraction_id: params[:format])
+    ride = @ride.take_ride
     redirect_to user_path(current_user)
+    ride
   end
 
   def show
@@ -45,6 +47,10 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:name, :nausea, :happiness, :tickets, :height, :admin)
   end
+
+  # def ride_params
+  #   params.require(:ride).permit(:user_id, :attraction_id)
+  # end
 
 
 
